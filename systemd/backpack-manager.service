@@ -1,0 +1,22 @@
+[Unit]
+Description=BackPack Manager (download-only tunnel quotas)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/backpack-manager
+Environment=PYTHONPATH=/opt/backpack-manager
+ExecStart=/usr/bin/python3 -m backpack_manager --config /etc/backpack-manager/config.json
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectHome=yes
+ProtectSystem=full
+ReadWritePaths=/etc/backpack /etc/backpack-manager /var/lib/backpack-manager /run /var/run
+
+[Install]
+WantedBy=multi-user.target
