@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "backpack-manager"
+version = "0.1.0"
+description = "Independent download-only quota manager for BackPack tunnels"
+requires-python = ">=3.8"
+
+[tool.setuptools.packages.find]
+include = ["backpack_manager*"]
